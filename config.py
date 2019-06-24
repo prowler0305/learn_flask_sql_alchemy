@@ -9,6 +9,7 @@ class BaseConfig:
     PROPAGATE_EXCEPTIONS = True
     THREADED = True
     PREFERRED_URL_SCHEME = 'https'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class DevelopmentConfig(BaseConfig):
@@ -16,6 +17,8 @@ class DevelopmentConfig(BaseConfig):
     PORT = 5000 if os.environ.get("PORT") is None else int(os.environ.get("PORT"))
     HOST = os.environ.get('HOST') or 'localhost'
     PREFERRED_URL_SCHEME = 'http'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}'.format(os.environ.get('db_user'), os.environ.get('db_pass'),
+                                                             os.environ.get('db_url'))
 
 
 class QaConfig(BaseConfig):
