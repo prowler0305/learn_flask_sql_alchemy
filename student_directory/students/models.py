@@ -12,18 +12,20 @@ class Student(db.Model):
     state = db.Column(db.String(2))
     zip = db.Column(db.String(5))
 
-    def __init__(self, first, last, street=None, city=None, zipcode=None):
+    def __init__(self, first, last, street=None, city=None, state=None, zipcode=None):
         """
 
         :param first:
         :param last:
         :param street:
         :param city:
+        :param state:
         :param zipcode:
         """
         self.first_name = first
         self.last_name = last
         self.street = street
         self.city = city
+        self.state = state
         self.zip = zipcode
 

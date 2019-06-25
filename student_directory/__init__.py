@@ -5,8 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 student_app = Flask(__name__)
 student_app.config.from_object(os.environ.get('app_env'))
-student_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flask_test:uscc1234@localhost/student_directory'
-student_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 student_api = Api(student_app)
 
 db = SQLAlchemy(student_app)
