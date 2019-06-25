@@ -24,7 +24,7 @@ class Students(MethodView):
         """
 
         new_student = Student(request.form.get('first_name'), request.form.get('last_name'), request.form.get('street'),
-                              request.form.get('city'), request.form.get('zipcode'))
+                              request.form.get('city'), request.form.get('state'), request.form.get('zipcode'))
         db.session.add(new_student)
         db.session.commit()
         flash("New student {} {} successfully added".format(request.form.get('first_name'), request.form.get('last_name')))
