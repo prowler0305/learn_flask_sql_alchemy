@@ -15,7 +15,7 @@ class Students(MethodView):
 
         :return:
         """
-        return render_template(self.template_name, students=Student.query.all())
+        return render_template(self.template_name, students=Student.query.all(), aurora=Student.query.filter_by(city='Aurora').all())
 
     def post(self):
         """
