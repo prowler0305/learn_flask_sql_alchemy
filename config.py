@@ -26,9 +26,15 @@ class QaConfig(BaseConfig):
     DEBUG = True
     PORT = 8080 if os.environ.get("PORT") is None else int(os.environ.get('PORT'))
     HOST = os.environ.get('HOST') or '0.0.0.0'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(os.environ.get('db_user'), os.environ.get('db_pass'),
+                                                                   os.environ.get('db_url'), os.environ.get('db_port'),
+                                                                   os.environ.get('db_name'))
 
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
     PORT = 8080 if os.environ.get("PORT") is None else int(os.environ.get('PORT'))
     HOST = os.environ.get('HOST') or '0.0.0.0'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(os.environ.get('db_user'), os.environ.get('db_pass'),
+                                                                   os.environ.get('db_url'), os.environ.get('db_port'),
+                                                                   os.environ.get('db_name'))
