@@ -31,4 +31,4 @@ class Students(MethodView):
         db.session.add(new_student)
         db.session.commit()
         flash("New student {} {} successfully added".format(request.form.get('first_name'), request.form.get('last_name')))
-        return redirect(url_for('students', _external=True, _scheme=students_app.config.get('PREFFERED_URL_SCHEME')))
+        return redirect(url_for('students', _external=True, _scheme=students_app.config.get('PREFERRED_URL_SCHEME')))
