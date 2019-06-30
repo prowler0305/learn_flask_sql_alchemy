@@ -33,4 +33,4 @@ class EditStudent(MethodView):
         update_student.zip = request.form.get('zipcode')
         db.session.commit()
 
-        return redirect(url_for('students'))
+        return redirect(url_for('students', _external=True))
