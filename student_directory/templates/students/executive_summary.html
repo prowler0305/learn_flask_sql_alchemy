@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<body>
+{% block content %}
+    <h3 class="text-primary">Executive Summary</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 shadow-lg bg-info my-3 mr-1">
+                <div class="text-left">
+                    <h1 class="text-white">{{ total_students }}</h1>
+                    <p class="position-absolute" style="bottom: 0">Total number of students</p>
+                </div>
+                <div class="text-right">
+                    <i class="fas fa-male fa-6x"></i>
+                </div>
+            </div>
+            {% for full_state_name, student_count in total_students_by_state.items() %}
+                {% if student_count > 0 %}
+                    <div class="col-md-3 shadow-lg bg-info my-3 mr-1">
+                        <div class="text-left">
+                            <h1 class="text-white">{{ student_count }}</h1>
+                            <p class="position-absolute" style="bottom: 0">Total Students in {{ full_state_name }}</p>
+                        </div>
+                        <div class="text-right">
+                            <i class="fas fa-flag-usa fa-6x"></i>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+</body>
