@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
+{% block content %}
 <body>
-{%  block content %}
-    <div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div id="loading-spinner" class="spinner-border text-primary" style="width: 50px; height: 50px" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        setTimeout(function(){
+            document.getElementById("loading-spinner").style.display = "none";
+        }, 3000)
+    </script>
+
+    <div class="container-fluid" id="contents">
         {% for full_state_name, state_short in state_abbrv.items() %}
             {% if state_short == request.view_args.state %}
                 <h3 class="text-primary">By State: {{ full_state_name }}</h3>
