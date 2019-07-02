@@ -22,15 +22,33 @@ class EditStudent(MethodView):
     def post(self, student_id):
         """
 
+        :param student_id:
         :return:
         """
-        update_student = Student.query.get(student_id)
-        update_student.first = request.form.get('first_name')
-        update_student.last = request.form.get('last_name')
-        update_student.street = request.form.get('street')
-        update_student.city = request.form.get('city')
-        update_student.state = request.form.get('state')
-        update_student.zip = request.form.get('zipcode')
-        db.session.commit()
+
+        if request.form.get("deleteStudentButton") is not None:
+            self.delete(student_id)
+        else:
+            update_student = Student.query.get(student_id)
+            update_student.first_name = request.form.get('first_name')
+            update_student.last_name = request.form.get('last_name')
+            update_student.street = request.form.get('street')
+            update_student.city = request.form.get('city')
+            update_student.state = request.form.get('state')
+            update_student.zip = request.form.get('zipcode')
+            db.session.commit()
 
         return redirect(url_for('students', _external=True, _scheme=students_app.config.get('PREFERRED_URL_SCHEME')))
+
+    def delete(self, student_id):
+        """
+
+        :param student_id:
+        :return:
+        """
+
+        delete_student_obj = Student.query.get(int(student_id))
+        db.session.delete(delete_student_obj)
+        flash("Student {} {} successfully deleted.".format(delete_student_obj.first_name, delete_student_obj.last_name))
+        db.session.commit()
+        return True

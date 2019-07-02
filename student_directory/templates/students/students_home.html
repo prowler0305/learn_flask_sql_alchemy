@@ -9,7 +9,7 @@
         Add Student
     </button>
     {% for message in get_flashed_messages() %}
-        {% if "successfully added" in message %}
+        {% if "successfully" in message %}
             {% set message_color = 'success' %}
         {% else %}
             {% set message_color = 'danger' %}
