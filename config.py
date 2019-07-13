@@ -1,6 +1,8 @@
 import os
 import datetime
 
+from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+
 student_app_dir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -20,6 +22,21 @@ class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(os.environ.get('db_user'), os.environ.get('db_pass'),
                                                                    os.environ.get('db_url'), os.environ.get('db_port'),
                                                                    os.environ.get('db_name'))
+    JOBS = [
+        {
+            "id": "job1",
+            "func": "jobs:job1",
+            "trigger": "interval",
+            "seconds": 10,
+            "replace_existing": True
+        }
+    ]
+    SCHEDULER_API_ENABLED = True
+    SCHEDULER_JOBSTORES = {
+
+        'default': SQLAlchemyJobStore(url=SQLALCHEMY_DATABASE_URI)
+
+    }
 
 
 class QaConfig(BaseConfig):
