@@ -2,7 +2,7 @@ apscheduler
 alembic==1.0.10
 aniso8601==7.0.0
 bleach==3.0.2
-certifi==2018.10.15
+#certifi==2018.10.15
 chardet==3.0.4
 Click==7.0
 docutils==0.14
@@ -15,7 +15,6 @@ idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10
 Mako==1.0.12
-MarkupSafe==1.1.0
 pkginfo==1.4.2
 psycopg2-binary==2.8.3
 Pygments==2.3.1
@@ -30,4 +29,3 @@ tqdm==4.29.0
 twine==1.12.1
 webencodings==0.5.1
 Werkzeug==0.14.1
-wincertstore==0.2
