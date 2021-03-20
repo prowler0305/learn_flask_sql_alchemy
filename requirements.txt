@@ -13,7 +13,7 @@ Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
 idna==2.8
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 Mako==1.0.12
 pkginfo==1.4.2
 psycopg2-binary==2.8.3
