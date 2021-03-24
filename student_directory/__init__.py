@@ -12,7 +12,7 @@ db = SQLAlchemy(student_app)
 # db.init_app(student_app)
 scheduler = APScheduler()
 scheduler.init_app(student_app)
-scheduler.start()
+# scheduler.start()
 student_api = Api(student_app)
 
 from student_directory.students.views.students import Students
