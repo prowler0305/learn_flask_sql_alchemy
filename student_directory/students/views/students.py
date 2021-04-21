@@ -4,6 +4,7 @@ from flask.views import MethodView
 from flask import current_app as students_app
 
 from student_directory import db
+from student_directory.decorators import templated
 from student_directory.students.models import Student
 from student_directory.students.state_abbrv import StateAbbrv
 
@@ -12,6 +13,7 @@ class Students(MethodView):
     def __init__(self):
         self.template_name = 'students/students_home.html'
 
+    @templated()
     def get(self):
         """
 
@@ -20,6 +22,7 @@ class Students(MethodView):
         return render_template(self.template_name, state_abbrv=StateAbbrv.state_abbrv_dict,
                                students=Student.query.all())
 
+    @templated()
     def post(self):
         """
 

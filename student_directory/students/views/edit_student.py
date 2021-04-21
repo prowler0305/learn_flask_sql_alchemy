@@ -2,6 +2,8 @@ import os
 from flask import render_template, request, redirect, url_for, flash
 from flask.views import MethodView
 from flask import current_app as students_app
+
+from student_directory.decorators import templated
 from student_directory.students.models import Student, db
 from student_directory.students.state_abbrv import StateAbbrv
 
@@ -10,6 +12,7 @@ class EditStudent(MethodView):
     def __init__(self):
         self.template_name = 'students/edit_student.html'
 
+    @templated()
     def get(self, student_id):
         """
 
@@ -18,6 +21,7 @@ class EditStudent(MethodView):
         return render_template(self.template_name, state_abbrv= StateAbbrv.state_abbrv_dict,
                                student=Student.query.get(student_id))
 
+    @templated()
     def post(self, student_id):
         """
 
