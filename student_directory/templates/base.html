@@ -12,6 +12,7 @@
     <title>Student Directory</title>
 </head>
 <body>
+    {% from 'helpers.html' import flash_alert %}
     <nav class="navbar navbar-dark bg-dark">
         <a href="{{ url_for('students') }}">Student Directory</a>
     </nav>

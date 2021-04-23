@@ -7,7 +7,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_restful import Api
 from flask_script import Manager, Server
 from flask_sqlalchemy import SQLAlchemy
-from flask_apscheduler import APScheduler
+# from flask_apscheduler import APScheduler
 # from student_directory import jobs
 from student_directory.students.models import db
 
