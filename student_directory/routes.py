@@ -7,7 +7,7 @@ from student_directory.students.views.by_state import ByState
 
 students_view = Students.as_view(name="students")
 edit_student_view = EditStudent.as_view(name='edit_student')
-executive_summary = ExecutiveSummary.as_view(name='executive')
+executive_summary = ExecutiveSummary.as_view(name='executive_summary')
 by_state_view = ByState.as_view(name='by_state')
 student_app.add_url_rule('/', view_func=students_view, methods=['GET', 'POST'])
 student_app.add_url_rule('/student/<student_id>', view_func=edit_student_view, methods=['GET', 'POST'])
