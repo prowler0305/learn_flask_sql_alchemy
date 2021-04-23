@@ -1,0 +1,19 @@
+{{ form.hidden_tag() }}
+<div class="form-group">
+    {{ form.first_name(class="form-control", placeholder=form.first_name.label.text) }}
+</div>
+<div class="form-group">
+    {{ form.last_name(class="form-control", placeholder=form.last_name.label.text) }}
+</div>
+<div class="form-group">
+    {{ form.street(class="form-control", placeholder=form.street.label.text) }}
+</div>
+<div class="form-group">
+    {{ form.city(class="form-control", placeholder=form.city.label.text) }}
+</div>
+<div class="form-group">
+    {{ form.state(class="form-control") }}
+</div>
+<div class="form-group">
+    {{ form.zip(class="form-control", placeholder=form.zip.label.text) }}
+</div>
