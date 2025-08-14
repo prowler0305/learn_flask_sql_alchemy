@@ -1,5 +1,5 @@
 import os
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, current_app as student_app
 from flask.views import MethodView
 from flask import current_app as students_app
 from sqlalchemy.exc import ProgrammingError
@@ -23,16 +23,16 @@ class Students(MethodView):
 
         :return:
         """
-        try:
-            list_o_students = Student.query.all()
-        except ProgrammingError as prog_err:
-            students_app.logger.exception(f"Error occurred with {os.environ.get('db_name')} database.")
-            list_o_students = []
-            db.session.rollback()
-            AppHelpers.create_flash_message(
-                f"Student information could not be retrieved due to issues with database: {os.environ.get('db_name')}",
-                category_request=("students", "danger"))
-        self.template_render_dict["students"] = list_o_students
+        # try:
+        #     list_o_students = Student.query.all()
+        # except ProgrammingError as prog_err:
+        #     students_app.logger.exception(f"Error occurred with {student_app.config.get('DB_NAME')} database.")
+        #     list_o_students = []
+        #     db.session.rollback()
+        #     AppHelpers.create_flash_message(
+        #         f"Student information could not be retrieved due to issues with database: {student_app.config.get('DB_NAME')}",
+        #         category_request=("students", "danger"))
+        # self.template_render_dict["students"] = list_o_students
 
         return self.template_render_dict
 
@@ -53,7 +53,7 @@ class Students(MethodView):
                 AppHelpers.create_flash_message(f"New student {request.form.get('first_name')} {request.form.get('last_name')} successfully added",
                                                 category_request=("students", "info"))
             except ProgrammingError as pge:
-                students_app.logger.exception(f"Error occurred with {os.environ.get('db_name')} database.")
+                students_app.logger.exception(f"Error occurred with {student_app.config.get('DB_NAME')} database.")
                 AppHelpers.create_flash_message(f"Student {request.form.get('first_name')} {request.form.get('last_name')} not added due to internal error",
                                                 category_request=("students", "danger"))
 

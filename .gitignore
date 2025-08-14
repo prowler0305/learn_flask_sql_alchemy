@@ -108,3 +108,5 @@ venv.bak/
 /.idea/
 learn_flask_sql_alchemy.iml
 core.*
+node_modules
+.parcel-cache

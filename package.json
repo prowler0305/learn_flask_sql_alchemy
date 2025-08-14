@@ -1,0 +1,27 @@
+{
+  "name": "learn_flask_sqlalchemy",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "parcel watch student_directory/frontend/index.js --dist-dir student_directory/static/dist",
+    "build": "parcel build student_directory/frontend/index.js --dist-dir student_directory/static/dist",
+    "parcel-version": "parcel build --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ilscha03-github-01/aspea002/learn_flask_sqlalchemy.git"
+  },
+  "author": "Andrew Spear",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/transformer-vue": "^2.15.4",
+    "axios": "^1.11.0",
+    "bootstrap": "^5.3.7",
+    "parcel": "^2.15.4",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3"
+  }
+}
